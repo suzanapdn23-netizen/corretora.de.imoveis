@@ -1,0 +1,1589 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suzana Silva – Corretora de Imóveis | João Pessoa</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'gold-premium': '#C8A46B',
+              'gold-hover': '#B69259',
+              'sand-sof': '#D8C3A5',
+              'nude-warm': '#E8DDD0',
+              'taupe-ele': '#7A6455',
+              'black-soft': '#1E1E1E',
+              'gray-sand': '#CFC7BD',
+              'white-ice': '#FAFAF8',
+              'offwhite-prem': '#F7F4EF',
+            },
+            fontFamily: {
+              serif: ['Playfair Display', 'Georgia', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #F7F4EF;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #D8C3A5;
+        border-radius: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #C8A46B;
+      }
+      /* Animated loading bar */
+      @keyframes loadingBar {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+      .animate-loading {
+        animation: loadingBar 2s infinite linear;
+      }
+    </style>
+  </head>
+  <body class="bg-offwhite-prem text-black-soft font-sans leading-normal antialiased">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-black-soft text-offwhite-prem py-2 px-4 text-center text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium border-b border-gold-premium/30 select-none">
+      <span class="inline-block w-2 h-2 rounded-full bg-gold-premium animate-pulse mr-2"></span>
+      João Pessoa: O Metro Quadrado Mais Nobre e Valorizado do Nordeste
+    </div>
+
+    <!-- MAIN HEADER NAVBAR -->
+    <header class="sticky top-0 z-50 bg-offwhite-prem/90 backdrop-blur-md border-b border-sand-sof/25 select-none transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex flex-col">
+          <span class="font-serif text-lg sm:text-xl font-bold tracking-[0.1em] text-black-soft">SUZANA SILVA</span>
+          <span class="font-sans text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold-premium font-medium -mt-1">CORRETAGEM DE LUXO</span>
+        </a>
+
+        <!-- Desktop Navigation links -->
+        <nav class="hidden lg:flex items-center space-x-8 font-sans text-xs uppercase tracking-widest font-medium text-black-soft/80">
+          <a href="#imoveis" class="hover:text-gold-premium transition-colors">Portfólio</a>
+          <a href="#simulador" class="hover:text-gold-premium transition-colors">Simulador</a>
+          <a href="#mapa" class="hover:text-gold-premium transition-colors">Onde Investir</a>
+          <a href="#tours" class="hover:text-gold-premium transition-colors">Tours Virtuais</a>
+          <a href="#contato" class="hover:text-gold-premium transition-colors">Atendimento</a>
+          <button onclick="toggleAboutModal()" class="hover:text-gold-premium transition-colors font-semibold border-b border-gold-premium/40 pb-0.5">Sobre Suzana</button>
+        </nav>
+
+        <!-- Right CTA Button -->
+        <div class="flex items-center space-x-4">
+          <a href="https://wa.me/5521995020643?text=Olá%20Suzana%2C%20visitei%20seu%20site%20e%20gostaria%20de%20receber%20um%20atendimento%20personalizado." target="_blank" class="hidden sm:inline-flex items-center space-x-2 bg-gold-premium hover:bg-gold-hover text-white-ice text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-lg transition-all shadow-md hover:shadow-lg hover:shadow-gold-premium/10">
+            <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+            <span>Falar com Suzana</span>
+          </a>
+          <!-- Mobile Menu Toggle -->
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-black-soft hover:text-gold-premium transition-colors">
+            <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-offwhite-prem border-t border-sand-sof/20 px-6 py-6 space-y-4 shadow-xl">
+        <a href="#imoveis" onclick="toggleMobileMenu()" class="block font-sans text-xs uppercase tracking-wider font-semibold text-black-soft">Portfólio Imobiliário</a>
+        <a href="#simulador" onclick="toggleMobileMenu()" class="block font-sans text-xs uppercase tracking-wider font-semibold text-black-soft">Simulador de Rentabilidade</a>
+        <a href="#mapa" onclick="toggleMobileMenu()" class="block font-sans text-xs uppercase tracking-wider font-semibold text-black-soft">Regiões Nobres</a>
+        <a href="#tours" onclick="toggleMobileMenu()" class="block font-sans text-xs uppercase tracking-wider font-semibold text-black-soft">Tours Virtuais 360°</a>
+        <a href="#contato" onclick="toggleMobileMenu()" class="block font-sans text-xs uppercase tracking-wider font-semibold text-black-soft">Falar com Suzana</a>
+        <button onclick="toggleMobileMenu(); toggleAboutModal();" class="block text-left font-sans text-xs uppercase tracking-wider font-semibold text-gold-premium">Sobre Suzana Silva (Biografia)</button>
+        
+        <div class="pt-4 border-t border-sand-sof/20">
+          <a href="https://wa.me/5521995020643?text=Olá%20Suzana%2C%20visitei%20seu%20site." target="_blank" class="w-full flex items-center justify-center space-x-2 bg-gold-premium py-3 rounded-lg text-white-ice text-xs font-bold uppercase tracking-widest">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+            <span>Mandar Mensagem Direta</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[90vh] flex items-center bg-black-soft text-white-ice overflow-hidden select-none">
+      <!-- Background Luxury Parallax Photo overlay -->
+      <div class="absolute inset-0 opacity-45 bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-105" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80');"></div>
+      
+      <!-- Ambient Color Gradient Blurs -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black-soft via-black-soft/80 to-transparent"></div>
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-gold-premium/15 rounded-full blur-[120px]"></div>
+      <div class="absolute -bottom-45 -right-45 w-[500px] h-[500px] bg-taupe-ele/25 rounded-full blur-[140px]"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Text panel -->
+          <div class="lg:col-span-8 space-y-8">
+            <div class="inline-flex items-center space-x-3 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+              <span class="inline-block w-2 h-2 rounded-full bg-gold-premium animate-ping"></span>
+              <span class="font-sans text-[9px] uppercase tracking-[0.25em] text-gold-premium font-bold">Lançamentos Exclusivos na Orla</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] text-white">
+              Sua Conexão Privada com o <br />
+              <span class="italic font-light text-gold-premium">Alto Padrão</span> em João Pessoa
+            </h1>
+
+            <p class="font-sans text-sm sm:text-base md:text-lg text-gray-300 font-light max-w-2xl leading-relaxed">
+              Descubra oportunidades seguras de moradia e investimento nas praias de Cabo Branco, Bessa, Tambaú e Cabedelo. Viva com o pé na areia e valorização constante de patrimônio.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-5 pt-4">
+              <a href="#imoveis" class="bg-gold-premium hover:bg-gold-hover text-white-ice text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-xl text-center shadow-lg transition-all duration-300 hover:scale-[1.02]">
+                Conhecer Portfólio
+              </a>
+              <button onclick="toggleAboutModal()" class="border border-white/20 hover:border-gold-premium bg-white/5 hover:bg-white/10 text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-xl text-center transition-all">
+                A Trajetória de Suzana
+              </button>
+            </div>
+          </div>
+
+          <!-- Hero Floating Stats Column -->
+          <div class="lg:col-span-4 grid grid-cols-2 gap-4">
+            <div class="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-gold-premium/45 transition-colors">
+              <span class="font-serif text-3xl sm:text-4xl font-bold text-gold-premium block">16.8%</span>
+              <span class="font-sans text-[10px] uppercase tracking-wider text-gray-300 font-medium">Valorização recorde em Cabedelo</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-gold-premium/45 transition-colors">
+              <span class="font-serif text-3xl sm:text-4xl font-bold text-gold-premium block">100%</span>
+              <span class="font-sans text-[10px] uppercase tracking-wider text-gray-300 font-medium">Frente mar definitivo</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-gold-premium/45 transition-colors">
+              <span class="font-serif text-3xl sm:text-4xl font-bold text-gold-premium block">R$ 0</span>
+              <span class="font-sans text-[10px] uppercase tracking-wider text-gray-300 font-medium">Burocracia ou dor de cabeça</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-gold-premium/45 transition-colors">
+              <span class="font-serif text-3xl sm:text-4xl font-bold text-gold-premium block">2h</span>
+              <span class="font-sans text-[10px] uppercase tracking-wider text-gray-300 font-medium">Tempo médio de resposta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOATING READ MORE ABOUT MODAL (The hidden biografia window) -->
+    <div id="about-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+        <!-- Overlay -->
+        <div onclick="toggleAboutModal()" class="fixed inset-0 bg-black-soft/75 transition-opacity" aria-hidden="true"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        
+        <!-- Modal body -->
+        <div class="inline-block align-bottom bg-offwhite-prem rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+          <div class="grid grid-cols-1 md:grid-cols-2 navbar-border">
+            <!-- Left Portrait column -->
+            <div class="relative min-h-[350px] md:h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80');">
+              <div class="absolute inset-0 bg-gradient-to-t from-black-soft via-transparent to-transparent"></div>
+              <div class="absolute bottom-8 left-8 text-white">
+                <p class="font-serif text-2xl font-bold">Suzana Silva</p>
+                <p class="font-sans text-xs uppercase tracking-widest text-gold-premium">Sua Consultora de Confiança</p>
+              </div>
+              <button onclick="toggleAboutModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black-soft/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black-soft/60 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+              </button>
+            </div>
+
+            <!-- Right content text block -->
+            <div class="p-8 sm:p-12 space-y-6 flex flex-col justify-between">
+              <div>
+                <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-gold-premium font-bold block mb-1">Trajetória e Propósito</span>
+                <h3 class="font-serif text-3xl font-semibold text-black-soft leading-tight mb-4">
+                  Uma parceira atenciosa para suas grandes decisões
+                </h3>
+                <div class="space-y-4 font-sans text-sm text-gray-500 font-light leading-relaxed">
+                  <p>
+                    Olá, meu nome é <strong>Suzana Silva</strong>. Minha missão de vida é desmistificar o mercado imobiliário para você. Entendo que comprar um imóvel é muito mais do que assinar um papel: trata-se do seu bem-estar, da segurança de sua família e da preservação do seu patrimônio de maneira inteligente.
+                  </p>
+                  <p>
+                    Com anos de atuação exclusiva na costa de João Pessoa e Cabedelo, me especializei em traduzir os termos difíceis e burocráticos em conversas simples, transparentes e acolhedoras. Trabalho apenas com o verdadeiro **alto padrão** e parcerias com as melhores construtoras.
+                  </p>
+                  <p>
+                    Sem termos complicados de corretor. Apenas transparência, escuta atenta dos seus sonhos, e as melhores seleções financeiramente blindadas da região.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Brand pillars inside bio modal -->
+              <div class="border-t border-sand-sof/20 pt-6 mt-6 grid grid-cols-2 gap-4">
+                <div class="flex items-start space-x-2">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-gold-premium shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-serif text-xs font-bold text-black-soft block">Segurança</span>
+                    <span class="font-sans text-[10px] text-gray-400 font-light block">Imóveis 100% regularizados</span>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i data-lucide="heart" class="w-4 h-4 text-gold-premium shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-serif text-xs font-bold text-black-soft block">Carinho</span>
+                    <span class="font-sans text-[10px] text-gray-400 font-light block">Atendimento acolhedor</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-4 flex items-center justify-end">
+                <a href="https://wa.me/5521995020643?text=Olá%20Suzana%2C%20gostaria%20de%20agendar%20uma%20conversa." target="_blank" class="bg-gold-premium hover:bg-gold-hover text-white-ice text-xs font-bold uppercase tracking-widest px-6 py-3.5 rounded-xl transition-all inline-flex items-center space-x-2">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                  <span>Agendar Conversa Gratuita</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROPERTY PORTFOLIO SHOWCASE SECTION -->
+    <section id="imoveis" class="py-24 sm:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 select-none">
+        <div class="inline-flex items-center space-x-2 mb-3">
+          <div class="w-1.5 h-1.5 rounded-full bg-gold-premium animate-pulse"></div>
+          <span class="font-sans text-[10px] uppercase tracking-[0.25em] text-gold-premium font-bold">Portfólio Exclusivo</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-black-soft mb-4">
+          Oportunidades Selecionadas a Dedo
+        </h2>
+        <p class="font-sans text-xs sm:text-sm text-gray-500 font-light leading-relaxed">
+          Tanto para desfrutar da brisa marinha em família quanto para multiplicar patrimônio com liquidez garantida na orla mais cobiçada.
+        </p>
+      </div>
+
+      <!-- Tab filter header system -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-12 select-none">
+        <button onclick="filterProperties('todos')" id="tab-todos" class="tab-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all bg-black-soft text-white-ice">
+          Todos os Imóveis
+        </button>
+        <button onclick="filterProperties('frente-mar')" id="tab-frente-mar" class="tab-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all bg-white border border-sand-sof/30 text-gray-500 hover:text-black-soft">
+          Frente Mar
+        </button>
+        <button onclick="filterProperties('alto-padrao')" id="tab-alto-padrao" class="tab-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all bg-white border border-sand-sof/30 text-gray-500 hover:text-black-soft">
+          Altíssimo Padrão
+        </button>
+        <button onclick="filterProperties('lancamento')" id="tab-lancamento" class="tab-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all bg-white border border-sand-sof/30 text-gray-500 hover:text-black-soft">
+          Novos Lançamentos
+        </button>
+        <button onclick="filterProperties('investimento')" id="tab-investimento" class="tab-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all bg-white border border-sand-sof/30 text-gray-500 hover:text-black-soft font-medium">
+          Investimento Seguro
+        </button>
+      </div>
+
+      <!-- Grid of property cards -->
+      <div id="properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Dynamically managed via Javascript to enable tab filtering without page reload but fully optimized -->
+      </div>
+    </section>
+
+    <!-- DETALHES DO IMÓVEL MODAL -->
+    <div id="details-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" role="dialog" aria-modal="true">
+      <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+        <div onclick="toggleDetailsModal(null)" class="fixed inset-0 bg-black-soft/75 transition-opacity" aria-hidden="true"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        
+        <div class="inline-block align-bottom bg-offwhite-prem rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+          <div class="relative min-h-[300px] w-full bg-cover bg-center" id="modal-prop-image">
+            <div class="absolute inset-0 bg-gradient-to-t from-black-soft/80 via-transparent to-transparent"></div>
+            <!-- Close button -->
+            <button onclick="toggleDetailsModal(null)" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black-soft/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black-soft/60 transition-colors">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="absolute bottom-6 left-6 right-6 text-white text-left">
+              <span class="px-2.5 py-1 rounded-full bg-gold-premium text-[9px] uppercase tracking-widest font-semibold inline-block mb-2" id="modal-prop-status">Frente Mar</span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold" id="modal-prop-title">Vanguard Ocean Residences</h3>
+              <p class="font-sans text-xs text-gray-200 mt-1" id="modal-prop-location">Areia Dourada, Cabedelo</p>
+            </div>
+          </div>
+          
+          <div class="p-6 sm:p-10 space-y-6">
+            <div class="grid grid-cols-3 gap-4 py-4 border-y border-sand-sof/20 text-center text-black-soft font-medium select-none text-xs">
+              <div>
+                <span class="text-gray-400 text-[10px] uppercase block">Área</span>
+                <span id="modal-prop-area">210 m²</span>
+              </div>
+              <div class="border-x border-sand-sof/20">
+                <span class="text-gray-400 text-[10px] uppercase block">Suítes</span>
+                <span id="modal-prop-suites">4 Suítes</span>
+              </div>
+              <div>
+                <span class="text-gray-400 text-[10px] uppercase block">Quartos</span>
+                <span id="modal-prop-bedrooms">4 Quartos</span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <h4 class="font-serif text-sm uppercase tracking-wider text-gold-premium font-bold">Descrição do Empreendimento</h4>
+              <p class="font-sans text-sm text-gray-500 font-light leading-relaxed" id="modal-prop-desc">
+                Um projeto lindo e contemporâneo em uma das praias mais reservadas da região. Oferece uma vista definitiva para a imensidão azul do mar, perfeito para quem quer acordar todos os dias curtindo o sol e a brisa da praia com máxima privacidade e conforto.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <h4 class="font-serif text-sm uppercase tracking-wider text-gold-premium font-bold">Características de Destaque</h4>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-sans text-xs text-black-soft/80" id="modal-prop-features">
+                <!-- Inner items injection -->
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-sand-sof/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <span class="font-sans text-[10px] uppercase tracking-wider text-gray-400 block">Preço de Tabela</span>
+                <span class="font-serif text-xl font-bold text-gold-premium" id="modal-prop-price">Sob Consulta</span>
+                <span class="font-sans text-[9px] text-gray-400 block" id="modal-prop-delivery">Previsão: Dezembro, 2027</span>
+              </div>
+              <!-- CTA modal dynamic WhatsApp request link -->
+              <a href="#" target="_blank" id="modal-whatsapp-cta" class="w-full sm:w-auto bg-gold-premium hover:bg-gold-hover text-white-ice text-xs font-bold uppercase tracking-widest px-6 py-4 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Solicitar Informações</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE INVESTMENT SIMULATOR & CHARTS SECTION -->
+    <section id="simulador" class="py-24 sm:py-32 bg-white-ice relative overflow-hidden">
+      <!-- Ambient Blurs -->
+      <div class="absolute top-1/2 left-0 w-80 h-80 bg-nude-warm/15 rounded-full blur-3xl -z-10"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-sand-sof/15 rounded-full blur-3xl -z-10 animate-pulse"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <!-- Text and controls Column (Left) -->
+          <div class="lg:col-span-12 xl:col-span-5 select-none space-y-8">
+            <div class="inline-flex items-center space-x-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-gold-premium"></div>
+              <span class="font-sans text-[10px] uppercase tracking-[0.25em] text-gold-premium font-bold">Investimento Inteligente</span>
+            </div>
+            
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-black-soft leading-tight">
+              Simulador de <br />
+              <span class="italic font-light text-taupe-ele">Crescimento Patrimonial</span>
+            </h2>
+
+            <p class="font-sans text-xs sm:text-sm text-gray-500 font-light leading-relaxed">
+              Arraste os sliders abaixo para estimar em tempo real a valorização financeira acumulada e os possíveis retornos de aluguel curta temporada que sua família pode alcançar investindo em João Pessoa.
+            </p>
+
+            <!-- Sliders Box -->
+            <div class="space-y-6 bg-white p-6 rounded-2xl shadow-md border border-sand-sof/15">
+              <!-- Slider 1 Valor -->
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-sans text-[10px] uppercase tracking-widest font-bold text-taupe-ele">Valor do Imóvel</span>
+                  <span id="label-valor" class="font-mono text-xs font-bold text-gold-premium">R$ 1.500.000</span>
+                </div>
+                <!-- Input slider -->
+                <input type="range" id="input-valor" min="400000" max="6000000" step="50000" value="1500000" oninput="updateSimulation()" class="w-full accent-gold-premium cursor-pointer" />
+                <div class="flex items-center justify-between text-[9px] text-gray-400 uppercase">
+                  <span>R$ 400 mil</span>
+                  <span>R$ 6 milhões</span>
+                </div>
+              </div>
+
+              <!-- Slider 2 Prazo em anos -->
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-sans text-[10px] uppercase tracking-widest font-bold text-taupe-ele">Prazo para Análise</span>
+                  <span id="label-prazo" class="font-serif text-xs font-bold text-gold-premium">5 Anos</span>
+                </div>
+                <input type="range" id="input-prazo" min="1" max="10" step="1" value="5" oninput="updateSimulation()" class="w-full accent-gold-premium cursor-pointer" />
+                <div class="flex items-center justify-between text-[9px] text-gray-400 uppercase">
+                  <span>1 Ano</span>
+                  <span>10 Anos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic SVG Chart Panel & Stats displays (Right) -->
+          <div class="lg:col-span-12 xl:col-span-7 bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-sand-sof/20">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 text-center select-none font-sans">
+              <div class="bg-offwhite-prem/60 border border-sand-sof/10 p-4 rounded-xl">
+                <span class="text-[9px] text-gray-400 uppercase tracking-wider block">Valorização Estimada</span>
+                <span id="sim-appreciation" class="font-serif text-lg font-bold text-black-soft mt-1 block">R$ 1.050.000</span>
+                <span id="sim-appreciation-pct" class="text-[9px] font-mono text-emerald-600 block">+14.2% ao ano</span>
+              </div>
+              <div class="bg-offwhite-prem/60 border border-sand-sof/10 p-4 rounded-xl">
+                <span class="text-[9px] text-gray-400 uppercase tracking-wider block">Renda Aluguel estimada</span>
+                <span id="sim-rental" class="font-serif text-lg font-bold text-black-soft mt-1 block">R$ 10.500 /mês</span>
+                <span class="text-[9px] text-gray-400 block">Média de mercado (0.7%)</span>
+              </div>
+              <div class="bg-gold-premium/15 border border-gold-premium/20 p-4 rounded-xl">
+                <span class="text-[9px] text-gold-premium uppercase tracking-wider font-bold block">Retorno Acumulado</span>
+                <span id="sim-grand-total" class="font-serif text-xl font-bold text-gold-premium mt-1 block">R$ 2.550.000</span>
+                <span class="text-[9px] text-gold-premium block font-medium">Patrimônio protegido</span>
+              </div>
+            </div>
+
+            <!-- Dynamic SVG Chart to visually show growth trend with coordinate markers -->
+            <div class="relative w-full h-[250px] sm:h-[300px] border-l border-b border-gray-sand/30 flex items-end">
+              <!-- SVG Path drawn programmatically -->
+              <svg id="chart-svg" class="absolute inset-0 w-full h-full" overflow="visible">
+                <defs>
+                  <linearGradient id="chartGlow" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#C8A46B" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#C8A46B" stop-opacity="0.00" />
+                  </linearGradient>
+                </defs>
+                <!-- Shaded Under-Curve -->
+                <path id="curve-area" d="" fill="url(#chartGlow)" />
+                <!-- Trend line -->
+                <path id="curve-line" d="" fill="none" stroke="#C8A46B" stroke-width="4" stroke-linecap="round" />
+                <!-- Bullet endpoints dots -->
+                <circle id="curve-start" cx="0" cy="0" r="6" fill="#1E1E1E" stroke="#C8A46B" stroke-width="3" />
+                <circle id="curve-end" cx="0" cy="0" r="7" fill="#C8A46B" stroke="#ffffff" stroke-width="3" />
+              </svg>
+
+              <!-- Dynamic Chart year coordinates inside canvas -->
+              <div class="absolute bottom-2 left-2 text-[9px] font-mono text-gray-400">Ano Inicial</div>
+              <div class="absolute bottom-2 right-2 text-[9px] font-mono text-gray-400" id="label-ano-final">Ano 5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE MAP & REGION EXPLORATION SECTION -->
+    <section id="mapa" class="py-24 sm:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 select-none">
+        <div class="inline-flex items-center space-x-2 mb-3">
+          <i data-lucide="map" class="w-4 h-4 text-gold-premium"></i>
+          <span class="font-sans text-[10px] uppercase tracking-[0.25em] text-gold-premium font-bold">Onde Investir</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-black-soft mb-4">
+          A Orla Mais Desejada
+        </h2>
+        <p class="font-sans text-xs sm:text-sm text-gray-500 font-light leading-relaxed">
+          Clique nos bairros da costa de João Pessoa e Cabedelo para entender os índices de valorização anual e descobrir o perfil de investimento ideal para seu estilo.
+        </p>
+      </div>
+
+      <!-- Illustrated Layout: List of locations & Description interactive card -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <!-- List of interactive regions buttons (Left Column) -->
+        <div class="lg:col-span-4 space-y-3 select-none">
+          <p class="font-sans text-[10px] uppercase tracking-widest text-gray-400 mb-4 font-bold">Selecione uma Região:</p>
+          
+          <button onclick="selectRegion('cabobranco')" id="reg-cabobranco" class="region-btn w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all bg-white shadow border-sand-sof/25 text-black-soft ring-1 ring-gold-premium/10">
+            <div class="flex items-center space-x-3">
+              <span class="w-8 h-8 rounded-full bg-gold-premium/15 text-gold-premium font-serif text-xs font-bold flex items-center justify-center">01</span>
+              <div>
+                <span class="font-serif text-sm font-bold block">Cabo Branco</span>
+                <span class="font-sans text-[9px] text-gray-400">Fatia Mais Nobre da Orla</span>
+              </div>
+            </div>
+            <span class="font-mono text-xs font-bold text-gold-premium">14.2% a.a.</span>
+          </button>
+
+          <button onclick="selectRegion('altiplano')" id="reg-altiplano" class="region-btn w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all bg-offwhite-prem border-sand-sof/15 text-gray-500 hover:bg-white">
+            <div class="flex items-center space-x-3">
+              <span class="w-8 h-8 rounded-full bg-slate-100 text-gray-400 font-serif text-xs font-bold flex items-center justify-center">02</span>
+              <div>
+                <span class="font-serif text-sm font-bold block">Altiplano</span>
+                <span class="font-sans text-[9px] text-gray-400">Condomínios Resort Suspensos</span>
+              </div>
+            </div>
+            <span class="font-mono text-xs font-bold text-gray-400">12.9% a.a.</span>
+          </button>
+
+          <button onclick="selectRegion('tambau')" id="reg-tambau" class="region-btn w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all bg-offwhite-prem border-sand-sof/15 text-gray-500 hover:bg-white">
+            <div class="flex items-center space-x-3">
+              <span class="w-8 h-8 rounded-full bg-slate-100 text-gray-400 font-serif text-xs font-bold flex items-center justify-center">03</span>
+              <div>
+                <span class="font-serif text-sm font-bold block">Tambaú</span>
+                <span class="font-sans text-[9px] text-gray-400">Conveniência e Gastronomia</span>
+              </div>
+            </div>
+            <span class="font-mono text-xs font-bold text-gray-400">13.5% a.a.</span>
+          </button>
+
+          <button onclick="selectRegion('bessa')" id="reg-bessa" class="region-btn w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all bg-offwhite-prem border-sand-sof/15 text-gray-500 hover:bg-white">
+            <div class="flex items-center space-x-3">
+              <span class="w-8 h-8 rounded-full bg-slate-100 text-gray-400 font-serif text-xs font-bold flex items-center justify-center">04</span>
+              <div>
+                <span class="font-serif text-sm font-bold block">Bessa</span>
+                <span class="font-sans text-[9px] text-gray-400">Calmaria e Águas Azuis (Caribessa)</span>
+              </div>
+            </div>
+            <span class="font-mono text-xs font-bold text-gray-400">15.1% a.a.</span>
+          </button>
+
+          <button onclick="selectRegion('cabedelo')" id="reg-cabedelo" class="region-btn w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all bg-offwhite-prem border-sand-sof/15 text-gray-500 hover:bg-white">
+            <div class="flex items-center space-x-3">
+              <span class="w-8 h-8 rounded-full bg-slate-100 text-gray-400 font-serif text-xs font-bold flex items-center justify-center">05</span>
+              <div>
+                <span class="font-serif text-sm font-bold block">Intermares e Cabedelo</span>
+                <span class="font-sans text-[9px] text-gray-400">O Vetor Máximo de Expansão</span>
+              </div>
+            </div>
+            <span class="font-mono text-xs font-bold text-gray-400">16.8% a.a.</span>
+          </button>
+        </div>
+
+        <!-- Illustrated dynamic descriptor card displaying selection detail (Right Column) -->
+        <div class="lg:col-span-8 bg-white border border-sand-sof/20 rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="font-sans text-[10px] uppercase font-bold text-gold-premium tracking-widest block" id="region-tag">Orla Principal</span>
+              <h3 class="font-serif text-3xl font-bold text-black-soft mt-1" id="region-title">Cabo Branco</h3>
+            </div>
+            <div class="bg-gold-premium/15 border border-gold-premium/20 px-4 py-2 rounded-xl text-center">
+              <span class="font-sans text-[8px] text-gray-400 uppercase tracking-widest block">Índice de Valorização</span>
+              <span class="font-serif text-lg font-bold text-gold-premium block" id="region-appreciation">14.2% ao ano</span>
+            </div>
+          </div>
+
+          <p class="font-sans text-sm text-gray-500 font-light leading-relaxed border-t border-sand-sof/20 pt-6" id="region-desc">
+            A joia máxima das praias de João Pessoa. Oferece um mar delicioso de águas mornas, proibição de prédios altos na areia que garante sol permanente o dia todo e uma avenida beira-mar fechada para caminhadas saudáveis todas as manhãs.
+          </p>
+
+          <div class="space-y-3">
+            <span class="font-sans text-[10px] uppercase font-bold text-black-soft tracking-wider block">Destaques da Localização:</span>
+            <!-- Dynamically injected checkpoints tags -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="region-highlights">
+              <!-- JS Injected highlights icons -->
+            </div>
+          </div>
+
+          <!-- Profile guidance recommendation message -->
+          <div class="bg-offwhite-prem/60 border border-sand-sof/20 rounded-2xl p-5 flex items-start space-x-3">
+            <i data-lucide="compass" class="w-5 h-5 text-gold-premium shrink-0 mt-0.5"></i>
+            <div>
+              <span class="font-serif text-xs font-bold text-black-soft block">Quem deve investir aqui?</span>
+              <span class="font-sans text-xs text-gray-500 font-light block leading-normal mt-0.5" id="region-profile">Para quem sonha em morar ou veranear no metro quadrado mais nobre, focado em bem-estar e lazer de alto nível.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOURS VIRTUAIS & 360 INTERACTIVE VIEW SECTION -->
+    <section id="tours" class="py-24 sm:py-32 bg-black-soft text-white-ice overflow-hidden">
+      <div class="text-center max-w-2xl mx-auto mb-16 select-none px-4">
+        <div class="inline-flex items-center space-x-2 mb-3">
+          <i data-lucide="eye" class="w-4 h-4 text-gold-premium"></i>
+          <span class="font-sans text-[10px] uppercase tracking-[0.25em] text-gold-premium font-bold">Imersão Exclusiva</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-4">
+          Visualização Imersiva 360°
+        </h2>
+        <p class="font-sans text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
+          Passeie pelos principais cômodos de nossos empreendimentos premium de onde estiver. Arraste a imagem abaixo para rotacionar o ambiente simulado!
+        </p>
+      </div>
+
+      <!-- Illustrated interactive 360 drag slider container -->
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <!-- Interactive Drag Pane -->
+        <div class="relative bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden aspect-video shadow-2xl group cursor-col-resize select-none" id="tour-panel">
+          <!-- Background frames generated through custom Unsplash clip -->
+          <img id="panoramic-view" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Vista 360" class="absolute w-[200%] h-full max-w-none object-cover transition-transform duration-75 origin-center" style="transform: translateX(-25%);" />
+          
+          <!-- Translucent Vignette gradient -->
+          <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 pointer-events-none"></div>
+
+          <!-- Hotspots overlays elements -->
+          <div class="absolute top-[45%] left-[30%] select-none group-hover:opacity-100 transition-opacity" id="hotspot-1" onclick="showHotspotInfo('Ponto Gourmet integrado de amplos horizontes, varanda espaçosa frente mar.')">
+            <div class="w-6 h-6 rounded-full bg-gold-premium/85 animate-ping absolute"></div>
+            <div class="w-6 h-6 rounded-full bg-gold-premium text-white flex items-center justify-center relative cursor-cell shadow-lg">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            </div>
+          </div>
+
+          <div class="absolute top-[60%] left-[65%] select-none group-hover:opacity-100 transition-opacity" id="hotspot-2" onclick="showHotspotInfo('Borda infinita revestida em pedra natural vulcânica Jatobá.')">
+            <div class="w-6 h-6 rounded-full bg-gold-premium/85 animate-ping absolute"></div>
+            <div class="w-6 h-6 rounded-full bg-gold-premium text-white flex items-center justify-center relative cursor-cell shadow-lg">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            </div>
+          </div>
+
+          <!-- Hover Indicator Help bar -->
+          <div class="absolute top-4 left-1/2 -translate-x-1/2 bg-black-soft/60 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/10 text-[9px] uppercase tracking-widest text-gold-premium pointer-events-none flex items-center space-x-1.5">
+            <i data-lucide="move-horizontal" class="w-3.5 h-3.5"></i>
+            <span>Arraste para Rotacionar</span>
+          </div>
+
+          <!-- Live dynamic notification pop -->
+          <div id="hotspot-bubble" class="absolute bottom-6 left-6 right-6 bg-black/80 backdrop-blur-md p-4 rounded-xl border border-white/10 transition-all duration-300 opacity-0 translate-y-3 pointer-events-none flex items-center space-x-3 text-xs sm:text-sm">
+            <i data-lucide="info" class="w-5 h-5 text-gold-premium shrink-0"></i>
+            <span id="hotspot-bubble-text">Clique nos pontos para detalhes.</span>
+          </div>
+        </div>
+
+        <div class="mt-8 flex items-center justify-center space-x-4">
+          <button onclick="changeTour('vanguard')" class="tour-nav-btn px-4 py-2 border rounded-full text-xs font-semibold uppercase tracking-wider border-gold-premium text-gold-premium bg-gold-premium/10 select-none">
+            Vanguard Residences
+          </button>
+          <button onclick="changeTour('imperial')" class="tour-nav-btn px-4 py-2 border rounded-full text-xs font-semibold uppercase tracking-wider border-white/15 text-gray-400 hover:text-white select-none">
+            Vila Imperial Penthouse
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS TESTIMONIALS SECTION -->
+    <section class="py-24 sm:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center space-x-2 mb-3">
+          <div class="w-1.5 h-1.5 rounded-full bg-gold-premium"></div>
+          <span class="font-sans text-[10px] uppercase tracking-[0.25em] text-gold-premium font-bold">Relatos e Histórias</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-black-soft mb-4">
+          A Satisfação de Investir Bem
+        </h2>
+        <p class="font-sans text-xs sm:text-sm text-gray-500 font-light leading-relaxed">
+          Histórias reais de famílias que transformaram sonhos de luxo à beira-mar em realidade segura e lucrativa na Paraíba.
+        </p>
+      </div>
+
+      <!-- Testimonials interactive list grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <!-- Card 1 -->
+        <div class="bg-white border border-sand-sof/20 p-8 rounded-3xl shadow-md h-full flex flex-col justify-between">
+          <div>
+            <div class="flex items-center space-x-1 text-gold-premium mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+            </div>
+            <p class="font-sans text-xs sm:text-sm text-gray-500 font-light leading-relaxed italic mb-8">
+              "Comprar nosso apartamento no Cabo Branco com a Suzana foi uma experiência incrível de ponta a ponta. Ela nos passou uma segurança sensacional desde o primeiro momento. Ela não oferece apenas chaves, ela entrega transparência e muita qualidade no serviço."
+            </p>
+          </div>
+          <div class="flex items-center space-x-3.5">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80" alt="Roberto" class="w-10 h-10 rounded-full object-cover shadow border border-sand-sof/30" />
+            <div>
+              <span class="font-serif text-xs font-bold text-black-soft block">Roberto Vasconcelos</span>
+              <span class="font-sans text-[9px] text-gray-400 block">Comprador no Cabo Branco</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white border border-sand-sof/20 p-8 rounded-3xl shadow-md h-full flex flex-col justify-between">
+          <div>
+            <div class="flex items-center space-x-1 text-gold-premium mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+            </div>
+            <p class="font-sans text-xs sm:text-sm text-gray-500 font-light leading-relaxed italic mb-8">
+              "Estávamos procurando um imóvel espaçoso de férias para curtir o verão com a brisa da praia. A Suzana entendeu perfeitamente o nosso estilo e nos apresentou um apartamento na maravilhosa praia do Bessa antes do lançamento comercial. Atendimento espetacular!"
+            </p>
+          </div>
+          <div class="flex items-center space-x-3.5">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80" alt="Helena" class="w-10 h-10 rounded-full object-cover shadow border border-sand-sof/30" />
+            <div>
+              <span class="font-serif text-xs font-bold text-black-soft block">Helena Siqueira Leitão</span>
+              <span class="font-sans text-[9px] text-gray-400 block">Compradora no Bessa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white border border-sand-sof/20 p-8 rounded-3xl shadow-md h-full flex flex-col justify-between">
+          <div>
+            <div class="flex items-center space-x-1 text-gold-premium mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-premium"></i>
+            </div>
+            <p class="font-sans text-xs sm:text-sm text-gray-500 font-light leading-relaxed italic mb-8">
+              "Estudamos o mercado de João Pessoa para diversificar patrimônio com segurança. A assessoria da Suzana nos mostrou, de forma muito clara, quais são os melhores pacotes na planta em Cabedelo. A transparência e o carinho dela foram cruciais."
+            </p>
+          </div>
+          <div class="flex items-center space-x-3.5">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&h=120&q=80" alt="Carlos" class="w-10 h-10 rounded-full object-cover shadow border border-sand-sof/30" />
+            <div>
+              <span class="font-serif text-xs font-bold text-black-soft block">Dr. Carlos Drummond</span>
+              <span class="font-sans text-[9px] text-gray-400 block">Investidor de São Paulo / SP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM LIFESTYLE BENTO FEED -->
+    <section class="py-24 sm:py-32 bg-white-ice text-black-soft">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="font-sans text-[10px] uppercase tracking-[0.25em] text-gold-premium font-bold block mb-3">Imóveis e Cotidiano</span>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-black-soft mb-4">
+            Acompanhe no Instagram
+          </h2>
+          <p class="font-sans text-xs sm:text-sm text-gray-500 font-light leading-relaxed">
+            Siga-me nas redes sociais para ter acesso facilitado a visitas completas com drones e as novidades construtivas da semana em João Pessoa.
+          </p>
+        </div>
+
+        <!-- Bento Grid of Instagram Posts -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Post 1 -->
+          <div class="relative bg-white border border-sand-sof/25 rounded-2xl overflow-hidden group shadow-md transition-shadow hover:shadow-lg">
+            <div class="aspect-square relative overflow-hidden bg-zinc-100">
+              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="IG 1" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <!-- Hover overlay specs statistics -->
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-6 text-white text-xs select-none">
+                <span class="flex items-center space-x-1.5 font-bold"><i data-lucide="heart" class="w-4 h-4 fill-white text-white"></i> <span>342</span></span>
+                <span class="flex items-center space-x-1.5 font-bold"><i data-lucide="message-circle" class="w-4 h-4 fill-white text-white"></i> <span>29</span></span>
+              </div>
+            </div>
+            <div class="p-4 text-xs font-light text-gray-500 leading-relaxed font-sans">
+              Visita matinal às obras frente mar do Vanguard na areia. A nossa costa é simplesmente fantástica! ✨
+            </div>
+          </div>
+
+          <!-- Post 2 -->
+          <div class="relative bg-white border border-sand-sof/25 rounded-2xl overflow-hidden group shadow-md transition-shadow hover:shadow-lg">
+            <div class="aspect-square relative overflow-hidden bg-zinc-100">
+              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80" alt="IG 2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-6 text-white text-xs select-none">
+                <span class="flex items-center space-x-1.5 font-bold"><i data-lucide="heart" class="w-4 h-4 fill-white text-white"></i> <span>512</span></span>
+                <span class="flex items-center space-x-1.5 font-bold"><i data-lucide="message-circle" class="w-4 h-4 fill-white text-white"></i> <span>48</span></span>
+              </div>
+            </div>
+            <div class="p-4 text-xs font-light text-gray-500 leading-relaxed font-sans">
+              Cômodos imponentes com iluminação natural em Cabo Branco. Pronta para receber momentos inesquecíveis. #litoraldeparaiba
+            </div>
+          </div>
+
+          <!-- Post 3 -->
+          <div class="relative bg-white border border-sand-sof/25 rounded-2xl overflow-hidden group shadow-md transition-shadow hover:shadow-lg">
+            <div class="aspect-square relative overflow-hidden bg-zinc-100">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="IG 3" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-6 text-white text-xs select-none">
+                <span class="flex items-center space-x-1.5 font-bold"><i data-lucide="heart" class="w-4 h-4 fill-white text-white"></i> <span>289</span></span>
+                <span class="flex items-center space-x-1.5 font-bold"><i data-lucide="message-circle" class="w-4 h-4 fill-white text-white"></i> <span>15</span></span>
+              </div>
+            </div>
+            <div class="p-4 text-xs font-light text-gray-500 leading-relaxed font-sans">
+              O pôr do sol mais espetacular do Brasil na nossa varanda. Valorização garantida que traz paz para a vida inteira! 🌊
+            </div>
+          </div>
+
+          <!-- Post 4 -->
+          <div class="relative bg-white border border-sand-sof/25 rounded-2xl overflow-hidden group shadow-md transition-shadow hover:shadow-lg">
+            <div class="aspect-square relative overflow-hidden bg-zinc-100">
+              <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=600&q=80" alt="IG 4" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-6 text-white text-xs select-none">
+                <span class="flex items-center space-x-1.5 font-bold"><i data-lucide="heart" class="w-4 h-4 fill-white text-white"></i> <span>476</span></span>
+                <span class="flex items-center space-x-1.5 font-bold"><i data-lucide="message-circle" class="w-4 h-4 fill-white text-white"></i> <span>34</span></span>
+              </div>
+            </div>
+            <div class="p-4 text-xs font-light text-gray-500 leading-relaxed font-sans">
+              Sessão de consultoria privada hoje de manhã com investidores queridos. Servir com transparência é o que nos move todos os dias! ✨
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center select-none">
+          <a href="https://instagram.com" target="_blank" class="inline-flex items-center space-x-2 border border-sand-sof/40 hover:border-gold-premium px-6 py-3.5 bg-white/70 hover:bg-white rounded-xl text-xs font-bold uppercase tracking-widest text-black-soft transition-all">
+            <i data-lucide="instagram" class="w-4 h-4 text-gold-premium"></i>
+            <span>Seguir Suzana Silva</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXCLUSIVE CONTACT REQUEST FORM SECTION (Multi-step conversational lead capturing) -->
+    <section id="contato" class="py-24 sm:py-32 bg-white relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          <!-- Column Left: Contact Slogan & Coordinates -->
+          <div class="lg:col-span-12 xl:col-span-5 select-none self-center space-y-8">
+            <div class="inline-flex items-center space-x-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-gold-premium animate-pulse"></div>
+              <span class="font-sans text-[10px] uppercase tracking-[0.25em] text-gold-premium font-bold">Contato Direto</span>
+            </div>
+            
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-black-soft">
+              Agende uma <br />
+              <span class="italic font-light text-taupe-ele">Conversa sem Compromisso</span>
+            </h2>
+
+            <p class="font-sans text-xs sm:text-sm text-gray-500 font-light leading-relaxed max-w-md">
+              Desfrute de uma conversa atenciosa com Suzana Silva. Realizamos apresentações detalhadas presencialmente na nossa maravilhosa orla ou de forma digital simplificada via WhatsApp.
+            </p>
+
+            <!-- Coordinates listing -->
+            <div class="space-y-6">
+              <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 rounded-full bg-offwhite-prem border border-sand-sof/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-4 h-4 text-gold-premium"></i>
+                </div>
+                <div>
+                  <span class="font-sans text-[8px] sm:text-[9px] uppercase tracking-widest text-gray-400 block">WhatsApp Suzana</span>
+                  <a href="https://wa.me/5521995020643" class="font-sans text-xs sm:text-sm font-bold text-black-soft hover:text-gold-premium transition-colors">+55 (21) 99502-0643</a>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 rounded-full bg-offwhite-prem border border-sand-sof/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="mail" class="w-4 h-4 text-gold-premium"></i>
+                </div>
+                <div>
+                  <span class="font-sans text-[8px] sm:text-[9px] uppercase tracking-widest text-gray-400 block">E-mail Corporativo</span>
+                  <a href="mailto:contato@suzanasilvaimoveis.com.br" class="font-sans text-xs sm:text-sm font-bold text-black-soft hover:text-gold-premium transition-colors">contato@suzanasilvaimoveis.com.br</a>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 rounded-full bg-offwhite-prem border border-sand-sof/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-gold-premium"></i>
+                </div>
+                <div>
+                  <span class="font-sans text-[8px] sm:text-[9px] uppercase tracking-widest text-gray-400 block">Atendimento Presencial</span>
+                  <span class="font-sans text-xs sm:text-sm font-bold text-black-soft block leading-normal">Orla de Cabo Branco, João Pessoa / PB</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-t border-sand-sof/15 pt-6 flex items-center space-x-2 text-gold-premium">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+              <span class="font-sans text-[10px] uppercase font-semibold tracking-wider">Seus canais de contato estão 100% seguros</span>
+            </div>
+          </div>
+
+          <!-- Column Right: Sophisticated dynamic lead capturing form in single box -->
+          <div class="lg:col-span-12 xl:col-span-7 bg-offwhite-prem text-black-soft rounded-3xl p-6 sm:p-10 shadow-lg border border-sand-sof/20">
+            <form onsubmit="handleFormSubmission(event)" id="exclusive-form" class="space-y-6">
+              <div class="mb-6 select-none">
+                <span class="font-sans text-[9px] uppercase tracking-widest font-bold text-gray-400 block">Atendimento Especial</span>
+                <h3 class="font-serif text-xl sm:text-2xl font-bold text-black-soft tracking-tight">Receba Opções Selecionadas</h3>
+                <p class="font-sans text-[11px] text-gray-400 mt-1 font-light">Deixe seus dados simples de contato e Suzana Silva retornará em minutos.</p>
+              </div>
+
+              <!-- Interactivity input fields -->
+              <div class="space-y-4">
+                <div>
+                  <label class="block font-sans text-[9px] font-bold text-taupe-ele uppercase tracking-widest mb-1.5">Seu Nome Completo *</label>
+                  <input type="text" id="form-name" required placeholder="Ex: Roberto Siqueira" class="w-full bg-white border border-sand-sof/40 rounded-xl px-4 py-3 font-sans text-xs text-black-soft focus:outline-none focus:ring-1 focus:ring-gold-premium focus:border-gold-premium" />
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block font-sans text-[9px] font-bold text-taupe-ele uppercase tracking-widest mb-1.5">WhatsApp / Celular com DDD *</label>
+                    <input type="tel" id="form-phone" required placeholder="Ex: (83) 99999-9999" class="w-full bg-white border border-sand-sof/40 rounded-xl px-4 py-3 font-sans text-xs text-black-soft focus:outline-none focus:ring-1 focus:ring-gold-premium focus:border-gold-premium" />
+                  </div>
+                  <div>
+                    <label class="block font-sans text-[9px] font-bold text-taupe-ele uppercase tracking-widest mb-1.5">Seu melhor E-mail *</label>
+                    <input type="email" id="form-email" required placeholder="Ex: roberto@email.com" class="w-full bg-white border border-sand-sof/40 rounded-xl px-4 py-3 font-sans text-xs text-black-soft focus:outline-none focus:ring-1 focus:ring-gold-premium focus:border-gold-premium" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block font-sans text-[9px] font-bold text-taupe-ele uppercase tracking-widest mb-1.5">Qual é o seu principal desejo hoje? *</label>
+                  <select id="form-interest" class="w-full bg-white border border-sand-sof/40 rounded-xl px-4 py-3.5 font-sans text-xs text-black-soft focus:outline-none focus:ring-1 focus:ring-gold-premium focus:border-gold-premium">
+                    <option value="frente-mar">Quero Apartamento de Frente para o Mar</option>
+                    <option value="alto-padrao">Quero Cobertura ou Casa de Altíssimo Padrão</option>
+                    <option value="lancamento">Desejo Novos Lançamentos em Primeira Mão</option>
+                    <option value="investimento">Busco Rentabilidade Segura Garantida</option>
+                    <option value="visita">Agendar Apresentação Presencial da Orla</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block font-sans text-[9px] font-bold text-taupe-ele uppercase tracking-widest mb-1.5">Mensagem ou preferência (Opcional)</label>
+                  <textarea id="form-message" rows="3" placeholder="Ex: Busco por 3 suítes com varanda gourmet, procuro no Cabo Branco..." class="w-full bg-white border border-sand-sof/40 rounded-xl px-4 py-3 font-sans text-xs text-black-soft focus:outline-none focus:ring-1 focus:ring-gold-premium focus:border-gold-premium resize-none"></textarea>
+                </div>
+              </div>
+
+              <!-- Button Submission -->
+              <button type="submit" id="form-submit-btn" class="w-full py-4 bg-gold-premium hover:bg-gold-hover text-white-ice text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 flex items-center justify-center space-x-2">
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                <span>Enviar Solicitação Exclusiva</span>
+              </button>
+            </form>
+
+            <!-- Inline Success container hidden on start -->
+            <div id="form-success-state" class="hidden py-8 text-center flex flex-col items-center">
+              <div class="w-14 h-14 rounded-full bg-gold-premium/15 flex items-center justify-center mb-6">
+                <i data-lucide="check-circle" class="w-8 h-8 text-gold-premium"></i>
+              </div>
+              <span class="font-sans text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Solicitação Recebida</span>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-black-soft" id="success-headline">Tudo pronto!</h3>
+              <p class="font-sans text-xs sm:text-sm text-gray-500 font-light max-w-sm mt-3 leading-relaxed">
+                Nossos corações estão em festa! Recebi seus dados com sucesso. Vou analisar sua busca pessoalmente e falar com você no WhatsApp em menos de 2 horas. Até já!
+              </p>
+              
+              <div class="w-full max-w-xs h-1 hover:h-1.5 bg-sand-sof/30 relative overflow-hidden mt-8 rounded">
+                <div class="absolute h-full bg-gold-premium w-full animate-loading"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER DESIGN -->
+    <footer class="bg-black-soft text-gray-sand py-16 sm:py-24 border-t border-gold-premium/20 select-none">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start mb-16">
+          
+          <!-- Column logo and mission text -->
+          <div class="md:col-span-4 space-y-4">
+            <span class="font-serif text-lg text-white font-bold tracking-widest block">SUZANA SILVA</span>
+            <span class="font-sans text-[8px] uppercase tracking-[0.3em] text-gold-premium block -mt-3.5">CORRETAGEM DE LUXO</span>
+            <p class="font-sans text-xs text-gray-400 font-light leading-relaxed max-w-xs pt-2">
+              Assessoria atenciosa e transparente para aquisição de imóveis de alto padrão nas praias mais nobres da Paraíba.
+            </p>
+          </div>
+
+          <!-- Column navigation map links -->
+          <div class="md:col-span-4 space-y-4">
+            <span class="font-sans text-[10px] uppercase tracking-wider text-white font-bold block">Acesso Rápido</span>
+            <ul class="space-y-2 text-xs text-gray-400 font-light">
+              <li><a href="#imoveis" class="hover:text-gold-premium transition-colors">Portfólio de Imóveis</a></li>
+              <li><a href="#simulador" class="hover:text-gold-premium transition-colors">Simulador de Rentabilidade</a></li>
+              <li><a href="#mapa" class="hover:text-gold-premium transition-colors">Onde Investir (Regiões de Orla)</a></li>
+              <li><a href="#tours" class="hover:text-gold-premium transition-colors">Tours de Vídeo Imersivos</a></li>
+              <li><button onclick="toggleAboutModal()" class="hover:text-gold-premium transition-colors text-left block">Biografia de Suzana Silva</button></li>
+            </ul>
+          </div>
+
+          <!-- Column Legal safety disclaimer -->
+          <div class="md:col-span-4 space-y-4">
+            <span class="font-sans text-[10px] uppercase tracking-wider text-white font-bold block">Conselho e Credenciamento</span>
+            <div class="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2 text-[11px] leading-relaxed text-gray-400 font-sans">
+              <span class="font-serif text-gold-premium font-bold block">CRECI PB: 12.345-F</span>
+              Imóveis anunciados de acordo com a legislação e sujeito a disponibilidade perante as construtoras parceiras de João Pessoa.
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-[10px] uppercase tracking-widest text-gray-500">
+          <span>&copy; 2026 Suzana Silva. Todos os direitos reservados.</span>
+          <span>Desenhado para o Luxo Clean da Orla</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE FLOATING WHATSAPP CHAT WIDGET -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-2 select-none">
+      <!-- Floating message bubble card helper -->
+      <div id="whatsapp-help-bubble" class="bg-white text-black-soft text-xs font-light py-2.5 px-4 rounded-xl shadow-xl border border-sand-sof/25 max-w-xs transition-all duration-300 opacity-0 translate-y-3 pointer-events-none flex items-center space-x-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+        <span>Olá! Fale direto com Suzana aqui.</span>
+      </div>
+      
+      <!-- Primary Action Floating Button Circle -->
+      <a href="https://wa.me/5521995020643?text=Olá%20Suzana%2C%20visitei%20seu%20site%20e%20gostaria%20de%20conversar." target="_blank" onmouseenter="toggleWappBubble(true)" onmouseleave="toggleWappBubble(false)" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 shadow-2xl hover:shadow-emerald-500/20 text-white flex items-center justify-center transition-all duration-300 hover:scale-105 relative">
+        <!-- Floating audio-like pulse ring -->
+        <div class="absolute inset-0 rounded-full bg-emerald-500 group-hover:animate-ping opacity-25"></div>
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+      </a>
+    </div>
+
+
+    <!-- BUSINESS DATA AND INTERACTIVE JAVASCRIPT FUNCTIONS -->
+    <script>
+      // 1. RAW DATA ARRAY OF IMMOBILIER PROPERTIES (Exactly as requested Brazilian localized terms)
+      const properties = [
+        {
+          id: 'prop-1',
+          title: 'Vanguard Ocean Residences',
+          subtitle: 'Apartamentos modernos de frente para o mar',
+          location: 'Areia Dourada, Cabedelo',
+          neighborhood: 'cabedelo',
+          price: 'Sob Consulta',
+          numericPrice: 3890000,
+          category: 'frente-mar',
+          area: 210,
+          bedrooms: 4,
+          suites: 4,
+          bathrooms: 5,
+          image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
+          features: [
+            'Piscina privativa na varanda gourmet de frente para o mar',
+            'Entrada imponente com sistema de segurança completo',
+            'Acabamento premium em porcelanato de grandes formatos',
+            'Preparação para automação de luzes, ar e som',
+            'Vagas com carregador para carro elétrico'
+          ],
+          description: 'Um projeto lindo e contemporâneo em uma das praias mais reservadas da região. Oferece uma vista definitiva para a imensidão azul do mar, perfeito para quem quer acordar todos os dias curtindo o sol e a brisa da praia com máxima privacidade.',
+          status: 'Em Obras',
+          delivery: 'Dezembro, 2027'
+        },
+        {
+          id: 'prop-2',
+          title: 'Vila Imperial Penthouse',
+          subtitle: 'Cobertura duplex cinematográfica de altíssimo padrão',
+          location: 'Orla de Cabo Branco, João Pessoa',
+          neighborhood: 'cabobranco',
+          price: 'R$ 7.900.000',
+          numericPrice: 7900000,
+          category: 'alto-padrao',
+          area: 485,
+          bedrooms: 5,
+          suites: 5,
+          bathrooms: 7,
+          image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80',
+          features: [
+            'Pé-direito duplo de 6 metros na sala de estar',
+            'Vidros com proteção acústica do chão ao teto',
+            'Piscina privativa de cara para a imensidão do mar',
+            'Elevador com controle biométrico privativo',
+            'Espaço gourmet integrado de altíssimo nível'
+          ],
+          description: 'O verdadeiro topo do luxo na cobiçada orla do Cabo Branco. Cobertura cinematográfica feita para famílias exigentes que desejam espaço pleno, sofisticação em cada centímetro quadrado e o privilégio diário de comtemplar o belíssimo entardecer do litoral.',
+          status: 'Pronto Novo',
+          delivery: 'Pronto para morar'
+        },
+        {
+          id: 'prop-3',
+          title: 'Lumina Beach House',
+          subtitle: 'O charme indiscutível de morar de pé na areia',
+          location: 'Mar de Bessa, João Pessoa',
+          neighborhood: 'bessa',
+          price: 'R$ 2.450.000',
+          numericPrice: 2450000,
+          category: 'lancamento',
+          area: 145,
+          bedrooms: 3,
+          suites: 3,
+          bathrooms: 4,
+          image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+          features: [
+            'Pé na areia real - saia do hall diretamente na praia',
+            'Varanda gourmet espaçosa totalmente integrada',
+            'Rooftop com maravilhosa piscina atlântica olímpica',
+            'Serviço exclusivo de portaria e concierge 24h',
+            'Ambientes claros que valorizam a incidência solar'
+          ],
+          description: 'Viver de forma charmosa e descompromissada na cobiçada orla do Bessa, carinhosamente apelidada de Caribessa. Um projeto maravilhoso feito para quem quer andar descalço pela manhã e curtir a paz que sua família realmente merece.',
+          status: 'Breve Lançamento',
+          delivery: 'Março, 2028'
+        },
+        {
+          id: 'prop-4',
+          title: 'Aurum Investment Club',
+          subtitle: 'Excelente taxa de rentabilidade no ponto de ouro',
+          location: 'Intermares, Cabedelo',
+          neighborhood: 'cabedelo',
+          price: 'R$ 840.000',
+          numericPrice: 840000,
+          category: 'investimento',
+          area: 68,
+          bedrooms: 2,
+          suites: 2,
+          bathrooms: 2,
+          image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
+          features: [
+            'Plantas modernas focadas em alta locação temporária',
+            'Acesso inteiramente digital com fechaduras inteligentes',
+            'Área comum requintada: piscina gourmet e coworking',
+            'Salas equipadas para reuniões rápidas de negócios',
+            'Bar de lazer no rooftop com vista panorâmica'
+          ],
+          description: 'Estrategicamente desenhado para quem deseja construir patrimônio sólido e blindado contra inflação. Localizado no coração de Intermares com grande liquidez e forte procura mensal por veraneio.',
+          status: 'Em Obras',
+          delivery: 'Julho, 2027'
+        },
+        {
+          id: 'prop-5',
+          title: 'Skyloft Infinite View',
+          subtitle: 'A maravilhosa vista de se viver nas alturas',
+          location: 'Altiplano Nobre, João Pessoa',
+          neighborhood: 'altiplano',
+          price: 'R$ 3.100.000',
+          numericPrice: 3100000,
+          category: 'alto-padrao',
+          area: 280,
+          bedrooms: 4,
+          suites: 4,
+          bathrooms: 6,
+          image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+          features: [
+            'Vista definitiva deslumbrante na altura máxima',
+            'Incrível ventilação natural constante em toda a casa',
+            'Suíte master com closet generoso e banheira',
+            'Tratamento acústico completo para total privacidade',
+            'Condomínio fechado com piscina de raia e spa'
+          ],
+          description: 'No ponto mais alto e ensolarado do Altiplano. Uma infraestrutura fantástica que reúne segurança presencial armada, lazer resort para as crianças e cômodos luxuosos em sintonia perfeita com a natureza.',
+          status: 'Pronto Novo',
+          delivery: 'Pronto para morar'
+        },
+        {
+          id: 'prop-6',
+          title: 'Epic Tambaú Boutique Residence',
+          subtitle: 'Praticidade residencial de alto padrão a duas quadras do mar',
+          location: 'Tambaú Premium, João Pessoa',
+          neighborhood: 'tambau',
+          price: 'R$ 1.290.000',
+          numericPrice: 1290000,
+          category: 'lancamento',
+          area: 92,
+          bedrooms: 2,
+          suites: 2,
+          bathrooms: 3,
+          image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+          features: [
+            'Design inspirado na hotelaria boutique europeia',
+            'Lobby decorado finamente com pedras nobres',
+            'Metais e porcelanatos de elevadíssima durabilidade',
+            'Serviço opcional de arrumação e lavanderia express',
+            'Espaço de descompressão, academia e piscina térmica'
+          ],
+          description: 'Tambaú é o bairro perfeito para quem quer ter as melhores cafeterias, padarias artesanais e excelentes restaurantes do lado de casa. Conforto total sem tirar o carro de sua vaga privativa de garagem.',
+          status: 'Breve Lançamento',
+          delivery: 'Novembro, 2028'
+        }
+      ];
+
+      // 2. RAW REGIONAL DATA OF CABEÇARIO DE RESIDÊNCIAS (Brazilian Portuguese plain labels)
+      const regions = {
+        cabobranco: {
+          title: 'Cabo Branco',
+          appreciation: '14.2% ao ano',
+          desc: 'A joia máxima das praias de João Pessoa. Oferece um mar delicioso de águas mornas, proibição de prédios altos na areia que garante sol permanente o dia todo e uma avenida beira-mar fechada para caminhadas saudáveis todas as manhãs.',
+          highlights: ['Orla plana para passear', 'Melhores bistrôs modernos', 'Excelente segurança presencial'],
+          profile: 'Indicado para quem busca moradia luxuosa de repouso absoluto com fácil acesso à praia com o máximo conforto.'
+        },
+        altiplano: {
+          title: 'Altiplano',
+          appreciation: '12.9% ao ano',
+          desc: 'Situado no platô residencial mais fresco e imponente da cidade. Abriga prédios monumentais suspensos com as maiores varandas gourmet e vista aérea de toda a praia costeira.',
+          highlights: ['Estrutura tipo resort fechado', 'Metragens amplas de segurança', 'Fácil acesso a ótimos colégios'],
+          profile: 'Ideal para famílias grandes que desejam privacidade máxima, lazer de condomínio completo e silêncio absoluto.'
+        },
+        tambau: {
+          title: 'Tambaú',
+          appreciation: '13.5% ao ano',
+          desc: 'O ponto mais ativo e valorizado comercialmente. Perfeito para moradores vibrantes que amam lazer a pé, cercado pelas marcas famosas de design, confeitarias, feirinhas e restaurantes requintados.',
+          highlights: ['Tudo a poucos passos do lar', 'Alta valorização comercial', 'Grande liquidez imediata para revender'],
+          profile: 'Casais modernos e investidores com olho em rentabilidade com locação rápida mensal e forte fluxo comercial.'
+        },
+        bessa: {
+          title: 'Bessa (Caribessa)',
+          appreciation: '15.1% ao ano',
+          desc: 'Uma charmosa área residencial de preservação com magníficos bancos de corais na maré baixa. Ideal para a prática de caiaque, stand-up paddle e convivência pacífica em praias tranquilas.',
+          highlights: ['Mar calmo estilo piscina azul', 'Baixa densidade de prédios altos', 'Restaurantes rústicos acolhedores'],
+          profile: 'Para quem adora esportes náuticos leves, passeios pé na areia e quer viver com a real calmaria típica da praia.'
+        },
+        cabedelo: {
+          title: 'Intermares e Cabedelo',
+          appreciation: '16.8% ao ano',
+          desc: 'O maior vetor de crescimento de novas residências de luxo. Une a beleza marinha de Intermares e a foz do rio Sanhauá com o inesquecível pôr do sol ao som do Bolero de Ravel no Jacaré.',
+          highlights: ['Grandes descontos na planta', 'Rápida valorização construtiva', 'Praias tranquilas e ensolaradas'],
+          profile: 'Investidores exigentes que visam retornos massivos de capital no médio prazo e pacotes facilitados em lançamentos.'
+        }
+      };
+
+      // 3. PANORAMIC TOURS IMAGING (simulated movement rotation)
+      const tours = {
+        vanguard: {
+          image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80',
+          hotspots: {
+            1: { style: 'top: 45%; left: 30%;', info: 'Amplo terraço integrado com churrasqueira em aço inox de frente para o mar azul.' },
+            2: { style: 'top: 60%; left: 65%;', info: 'Suíte master espaçosa planejada com revestimento acústico e marcenaria premium.' }
+          }
+        },
+        imperial: {
+          image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+          hotspots: {
+            1: { style: 'top: 50%; left: 40%;', info: 'Espaço adega climatizado com prateleiras em madeira nobre certificada.' },
+            2: { style: 'top: 30%; left: 75%;', info: 'Varanda de cobertura com borda infinita de vista definitiva para a orla de Cabo Branco.' }
+          }
+        }
+      };
+
+
+      // --- LOGIC FUNCTIONS FOR DYNAMIC INTERACTIVITY ---
+
+      // Toggle biografia modals
+      function toggleAboutModal() {
+        const modal = document.getElementById('about-modal');
+        modal.classList.toggle('hidden');
+      }
+
+      // Toggle property details modal
+      let activePropId = null;
+      function toggleDetailsModal(propId) {
+        const modal = document.getElementById('details-modal');
+        if (!propId) {
+          modal.classList.add('hidden');
+          return;
+        }
+
+        const prop = properties.find(p => p.id === propId);
+        if (!prop) return;
+
+        // Inject content
+        document.getElementById('modal-prop-image').style.backgroundImage = `url('${prop.image}')`;
+        document.getElementById('modal-prop-title').innerText = prop.title;
+        document.getElementById('modal-prop-location').innerText = prop.location;
+        document.getElementById('modal-prop-area').innerText = `${prop.area} m²`;
+        document.getElementById('modal-prop-suites').innerText = `${prop.suites} Suíte${prop.suites > 1 ? 's' : ''}`;
+        document.getElementById('modal-prop-bedrooms').innerText = `${prop.bedrooms} Quarto${prop.bedrooms > 1 ? 's' : ''}`;
+        document.getElementById('modal-prop-desc').innerText = prop.description;
+        document.getElementById('modal-prop-status').innerText = prop.status;
+        document.getElementById('modal-prop-price').innerText = prop.price;
+        document.getElementById('modal-prop-delivery').innerText = `Previsão: ${prop.delivery}`;
+
+        // WhatsApp Custom message
+        const messageBody = encodeURIComponent(`Olá Suzana Silva! Gostaria de receber mais informações detalhadas sobre o empreendimento "${prop.title}".`);
+        document.getElementById('modal-whatsapp-cta').href = `https://wa.me/5521995020643?text=${messageBody}`;
+
+        // Features list
+        const featList = document.getElementById('modal-prop-features');
+        featList.innerHTML = '';
+        prop.features.forEach(feat => {
+          featList.innerHTML += `
+            <li class="flex items-start space-x-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-gold-premium shrink-0 mt-0.5"></i>
+              <span>${feat}</span>
+            </li>
+          `;
+        });
+
+        modal.classList.remove('hidden');
+        lucide.createIcons();
+      }
+
+      // Filter property grid
+      function filterProperties(category) {
+        // Toggle active visual states on button tab styles
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.className = 'tab-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all bg-white border border-sand-sof/30 text-gray-500 hover:text-black-soft';
+        });
+
+        const activeTab = document.getElementById(`tab-${category}`);
+        if(activeTab) {
+          activeTab.className = 'tab-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all bg-black-soft text-white-ice';
+        }
+
+        const filtered = category === 'todos' ? properties : properties.filter(p => p.category === category);
+        const grid = document.getElementById('properties-grid');
+        grid.innerHTML = '';
+
+        filtered.forEach(p => {
+          grid.innerHTML += `
+            <div class="bg-white border border-sand-sof/20 rounded-3xl overflow-hidden shadow-md flex flex-col justify-between group hover:shadow-lg transition-all duration-300">
+              <div class="relative aspect-[4/3] bg-zinc-100 overflow-hidden">
+                <img src="${p.image}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <span class="absolute top-4 left-4 bg-black-soft/75 backdrop-blur-sm text-gold-premium text-[9px] uppercase tracking-widest px-3 py-1.5 rounded-full font-bold">
+                  ${p.status}
+                </span>
+              </div>
+              
+              <div class="p-6 sm:p-8 space-y-4 flex-1">
+                <div>
+                  <span class="font-sans text-[9px] uppercase font-bold tracking-widest text-gold-premium">${p.location}</span>
+                  <h3 class="font-serif text-lg font-bold text-black-soft leading-snug mt-1">${p.title}</h3>
+                  <p class="font-sans text-xs text-gray-400 font-light mt-1">${p.subtitle}</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 border-t border-b border-sand-sof/15 py-3 text-center text-[11px] text-gray-400 select-none">
+                  <div><span class="text-black-soft font-semibold block">${p.area} m²</span>Área</div>
+                  <div class="border-x border-sand-sof/15"><span class="text-black-soft font-semibold block">${p.suites}</span>Suítes</div>
+                  <div><span class="text-black-soft font-semibold block">${p.bedrooms}</span>Quartos</div>
+                </div>
+
+                <div class="flex items-center justify-between pt-2">
+                  <div>
+                    <span class="text-[9px] text-gray-400 uppercase tracking-widest block">Investimento</span>
+                    <span class="font-serif text-sm font-bold text-gold-premium">${p.price}</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <button onclick="toggleDetailsModal('${p.id}')" class="px-3 py-2 border border-sand-sof/40 hover:border-gold-premium font-sans text-[10px] uppercase font-bold tracking-wider rounded-lg transition-colors text-black-soft">Detalhes</button>
+                    <a href="https://wa.me/5521995020643?text=Olá%20Suzana%2C%20gostaria%20de%20conversar%20sobre%20o%20${encodeURIComponent(p.title)}" target="_blank" class="w-9 h-9 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        lucide.createIcons();
+      }
+
+      // Region selector highlight
+      function selectRegion(id) {
+        // Toggle active regional button color schemas
+        document.querySelectorAll('.region-btn').forEach(btn => {
+          btn.className = 'region-btn w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all bg-offwhite-prem border-sand-sof/15 text-gray-500 hover:bg-white';
+          btn.querySelector('span').className = 'w-8 h-8 rounded-full bg-slate-100 text-gray-400 font-serif text-xs font-bold flex items-center justify-center';
+        });
+
+        const activeReg = document.getElementById(`reg-${id}`);
+        if(activeReg) {
+          activeReg.className = 'region-btn w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all bg-white shadow border-sand-sof/25 text-black-soft ring-1 ring-gold-premium/10';
+          activeReg.querySelector('span').className = 'w-8 h-8 rounded-full bg-gold-premium/15 text-gold-premium font-serif text-xs font-bold flex items-center justify-center';
+        }
+
+        const reg = regions[id];
+        if (!reg) return;
+
+        document.getElementById('region-title').innerText = reg.title;
+        document.getElementById('region-appreciation').innerText = reg.appreciation;
+        document.getElementById('region-desc').innerText = reg.desc;
+        document.getElementById('region-profile').innerText = reg.profile;
+
+        const highlightsGrid = document.getElementById('region-highlights');
+        highlightsGrid.innerHTML = '';
+        reg.highlights.forEach(hl => {
+          highlightsGrid.innerHTML += `
+            <div class="p-3.5 bg-offwhite-prem/75 border border-sand-sof/15 rounded-xl flex items-center space-x-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-gold-premium shrink-0"></i>
+              <span class="font-sans text-xs font-medium text-black-soft">${hl}</span>
+            </div>
+          `;
+        });
+
+        lucide.createIcons();
+      }
+
+      // Interactive Investment Simulator Slider formulas
+      function updateSimulation() {
+        const valor = parseFloat(document.getElementById('input-valor').value);
+        const prazo = parseInt(document.getElementById('input-prazo').value);
+
+        // Custom localized labeling
+        document.getElementById('label-valor').innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(valor);
+        document.getElementById('label-prazo').innerText = `${prazo} ${prazo === 1 ? 'Ano' : 'Anos'}`;
+        document.getElementById('label-ano-final').innerText = `Ano ${prazo}`;
+
+        // Calculos simplificados de rentabilidade de alto nivel
+        const valorizacaoAnualTaxa = 0.142; // 14.2% ao ano
+        const taxaLocacaoMensal = 0.0075; // 0.75% de aluguel curta temporada médio
+
+        let valorImovelFuturo = valor;
+        let aluguelAcumulado = 0;
+
+        for (let i = 1; i <= prazo; i++) {
+          valorImovelFuturo = valorImovelFuturo * (1 + valorizacaoAnualTaxa);
+          aluguelAcumulado += (valor * taxaLocacaoMensal) * 12; // Baseado no valor de investimento original para simplicidade prudente
+        }
+
+        const valorizacaoGanho = valorImovelFuturo - valor;
+        const aluguelMensalEstimado = valor * taxaLocacaoMensal;
+        const retornoGrandTotal = valorImovelFuturo + aluguelAcumulado;
+
+        // Inject results into view elements
+        document.getElementById('sim-appreciation').innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(valorizacaoGanho);
+        document.getElementById('sim-rental').innerText = `${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(aluguelMensalEstimado)} /mês`;
+        document.getElementById('sim-grand-total').innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(retornoGrandTotal);
+
+        // Redraw trend graph path with responsive coordinates curves
+        const chart = document.getElementById('chart-svg');
+        const width = chart.clientWidth || 350;
+        const height = chart.clientHeight || 200;
+
+        // We make a nice cubic-bezier curved trendline
+        const padding = 15;
+        const startX = padding;
+        const startY = height - padding;
+        const endX = width - padding;
+        const endY = padding + (height - padding * 2) * (1 - (retornoGrandTotal / 12000000)); // normalized scale
+
+        const ctrlX1 = startX + (endX - startX) * 0.45;
+        const ctrlY1 = startY;
+        const ctrlX2 = startX + (endX - startX) * 0.55;
+        const ctrlY2 = endY;
+
+        const pathD = `M ${startX} ${startY} C ${ctrlX1} ${ctrlY1}, ${ctrlX2} ${ctrlY2}, ${endX} ${endY}`;
+        const areaD = `${pathD} L ${endX} ${height} L ${startX} ${height} Z`;
+
+        document.getElementById('curve-line').setAttribute('d', pathD);
+        document.getElementById('curve-area').setAttribute('d', areaD);
+
+        // Adjust endpoints markers coordinates
+        const startMarker = document.getElementById('curve-start');
+        startMarker.setAttribute('cx', startX);
+        startMarker.setAttribute('cy', startY);
+
+        const endMarker = document.getElementById('curve-end');
+        endMarker.setAttribute('cx', endX);
+        endMarker.setAttribute('cy', endY);
+      }
+
+      // Dynamic form lead submit to WhatsApp conversation
+      function handleFormSubmission(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('form-name').value;
+        const phone = document.getElementById('form-phone').value;
+        const email = document.getElementById('form-email').value;
+        const interest = document.getElementById('form-interest').value;
+        const message = document.getElementById('form-message').value;
+
+        // Hide form inputs elements
+        document.getElementById('exclusive-form').classList.add('hidden');
+        const success = document.getElementById('form-success-state');
+        success.classList.remove('hidden');
+        document.getElementById('success-headline').innerText = `Atendimento Reservado, ${name}!`;
+
+        const interestLabels = {
+          'frente-mar': 'Apartamentos de Frente para o Mar',
+          'alto-padrao': 'Coberturas ou Casas de Altíssimo Padrão',
+          'lancamento': 'Novos Lançamentos em Primeira Mão',
+          'investimento': 'Rentabilidade Segura Garantida',
+          'visita': 'Apresentação Presencial da Orla'
+        };
+
+        const interestLabel = interestLabels[interest] || interest;
+
+        // Pre-build WhatsApp chat message trigger
+        const msgText = encodeURIComponent(`Olá Suzana Silva!\n\nAcabei de solicitar uma assessoria exclusiva pelo seu site corporativo.\n\nNome: ${name}\nWhatsApp: ${phone}\nE-mail: ${email}\nInteresse Principal: ${interestLabel}\nPreferências Adicionais: ${message}`);
+        
+        // Wait 1.8 seconds that simulates luxury concierge CRM syncing then open chat link
+        setTimeout(() => {
+          window.open(`https://wa.me/5521995020643?text=${msgText}`, '_blank');
+        }, 1800);
+      }
+
+      // Panoramic interior dragging simulation rotador
+      let activeTourKey = 'vanguard';
+      let isDragging = false;
+      let startMouseX = 0;
+      let imageTranslateX = -25; // standard starting translate position percent
+
+      const tourPanel = document.getElementById('tour-panel');
+      const panoramaImg = document.getElementById('panoramic-view');
+
+      // Drag handles listener
+      tourPanel.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startMouseX = e.clientX;
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      tourPanel.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const currentX = e.clientX;
+        const deltaX = currentX - startMouseX;
+        startMouseX = currentX;
+
+        // Update translations
+        imageTranslateX += (deltaX * 0.08); // speed scaler factor
+        // Bounds limits
+        if (imageTranslateX > 0) imageTranslateX = 0;
+        if (imageTranslateX < -100) imageTranslateX = -100;
+
+        panoramaImg.style.transform = `translateX(${imageTranslateX}%)`;
+      });
+
+      // Mobile touch support
+      tourPanel.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startMouseX = e.touches[0].clientX;
+      });
+
+      window.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+
+      tourPanel.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const deltaX = currentX - startMouseX;
+        startMouseX = currentX;
+
+        imageTranslateX += (deltaX * 0.08);
+        if (imageTranslateX > 0) imageTranslateX = 0;
+        if (imageTranslateX < -100) imageTranslateX = -100;
+
+        panoramaImg.style.transform = `translateX(${imageTranslateX}%)`;
+      });
+
+      function showHotspotInfo(text) {
+        const bubble = document.getElementById('hotspot-bubble');
+        const bubbleText = document.getElementById('hotspot-bubble-text');
+        
+        bubbleText.innerText = text;
+        bubble.classList.remove('opacity-0', 'translate-y-3');
+        bubble.classList.add('opacity-100', 'translate-y-0');
+
+        // Close after a brief timer
+        setTimeout(() => {
+          bubble.classList.remove('opacity-100', 'translate-y-0');
+          bubble.classList.add('opacity-0', 'translate-y-3');
+        }, 4000);
+      }
+
+      function changeTour(tourName) {
+        activeTourKey = tourName;
+        // Adjust style button states
+        document.querySelectorAll('.tour-nav-btn').forEach(btn => {
+          btn.className = 'tour-nav-btn px-4 py-2 border rounded-full text-xs font-semibold uppercase tracking-wider border-white/15 text-gray-400 hover:text-white select-none';
+        });
+
+        const activeBtn = event.target;
+        activeBtn.className = 'tour-nav-btn px-4 py-2 border rounded-full text-xs font-semibold uppercase tracking-wider border-gold-premium text-gold-premium bg-gold-premium/10 select-none';
+
+        const tour = tours[tourName];
+        if (!tour) return;
+
+        // Swap images
+        panoramaImg.src = tour.image;
+        imageTranslateX = -25;
+        panoramaImg.style.transform = `translateX(${imageTranslateX}%)`;
+
+        // Reposition hotspots coordinates
+        document.getElementById('hotspot-1').style = tour.hotspots[1].style;
+        document.getElementById('hotspot-1').setAttribute('onclick', `showHotspotInfo("${tour.hotspots[1].info}")`);
+
+        document.getElementById('hotspot-2').style = tour.hotspots[2].style;
+        document.getElementById('hotspot-2').setAttribute('onclick', `showHotspotInfo("${tour.hotspots[2].info}")`);
+      }
+
+      // Help bubbles WhatsApp hovering toggles
+      function toggleWappBubble(show) {
+        const bubble = document.getElementById('whatsapp-help-bubble');
+        if (show) {
+          bubble.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+          bubble.classList.add('opacity-100', 'translate-y-0');
+        } else {
+          bubble.classList.remove('opacity-100', 'translate-y-0');
+          bubble.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+        }
+      }
+
+      // Toggle Mobile Menu hamburger layouts
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+      }
+
+      // 4. ON WINDOW LOAD SETUP INITIAL STATES
+      window.onload = function() {
+        // Build properties grid
+        filterProperties('todos');
+        // Select regional highlights
+        selectRegion('cabobranco');
+        // Initial investment simulator calculation
+        updateSimulation();
+      };
+    </script>
+  </body>
+</html>
